@@ -17,6 +17,13 @@ class ApplicationController < Sinatra::Base
     #     house.to_json
     # end
 
+    post "/houses" do
+        house = House.create(
+            name: params[:name]
+        )
+        house.to_json
+    end
+
 
     #character routes
     get '/characters' do 
