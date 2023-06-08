@@ -9,9 +9,17 @@ function CharactersButton() {
     useEffect(() =>{
         fetch(`${baseApiUrl}/characters`)
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => setCharacters(data))
     }, [])
 
+    return <form>
+        <select name='character_id' id='character_id'>
+            {characters.map((character) =>(
+                <option key={character.id}>{character.first_name}</option>
+            ))}
+
+        </select>
+    </form>
 
 //   const fetchCharactersData = async () => {
 //     try {
@@ -34,7 +42,7 @@ function CharactersButton() {
 //       ))}
 //     </div>
 //   );
-    return <h1>Hello</h1>
+    
 }
 
 export default CharactersButton;
