@@ -10,17 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_08_064713) do
+ActiveRecord::Schema.define(version: 2023_06_08_192115) do
 
   create_table "characters", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "title"
     t.integer "seasons"
+    t.integer "house_id"
+    t.index ["house_id"], name: "index_characters_on_house_id"
   end
 
   create_table "houses", force: :cascade do |t|
     t.string "name"
   end
 
+  add_foreign_key "characters", "houses"
 end
