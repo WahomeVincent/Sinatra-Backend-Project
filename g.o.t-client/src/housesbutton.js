@@ -1,42 +1,34 @@
 import React, { useState, useEffect } from 'react';
 
 function HousesButton() {
-  // const [houses, setHouses] = useState([]);
+  const [houses, setHouses] = useState([]);
 
   const baseApiUrl = 'http://127.0.0.1:9292'
+
+  const submitFormHandler = (e) => {
+    e.preventDefault();
+  };
 
   useEffect(() =>{
       fetch(`${baseApiUrl}/houses`)
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => setHouses(data))
   }, [])
 
-  // const fetchHousesData = async () => {
-  //   try {
-  //     const response = await fetch('/api/houses');
-  //     const data = await response.json();
-  //     setHouses(data);
-  //   } catch (error) {
-  //     console.error('Error fetching houses data:', error);
-  //   }
-  // };
+  return <form onSubmit={submitFormHandler}>
+    
+    <select name="house_id" id="house_id" className='custom-select'>
+      <option disabled selected value="">Houses</option>
+        {houses.map((house) => (
+      <option key={house.id} value={house.id}>
+        {house.name}
+      </option>
+  ))}
+</select>
 
-  // return (
-  //   <div>
-  //     <button onClick={fetchHousesData} className='my-buttons'>Houses</button>
-  //     {houses.map((house) => (
-  //       <div key={house.id}>
-  //         <h3>{house.name}</h3>
-  //         <ul>
-  //           {house.characters.map((character) => (
-  //             <li key={character.id}>{character.name}</li>
-  //           ))}
-  //         </ul>
-  //       </div>
-  //     ))}
-  //   </div>
-  // );
-  return <h1>houses</h1>
+  </form>
+
+  
 }
 
 export default HousesButton;
