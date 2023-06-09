@@ -5,6 +5,10 @@ function CharactersButton() {
 
   const baseApiUrl = 'http://127.0.0.1:9292'
 
+  const submitFormHandler = (e) => {
+    e.preventDefault();
+  };
+
 
     useEffect(() =>{
         fetch(`${baseApiUrl}/characters`)
@@ -12,36 +16,16 @@ function CharactersButton() {
         .then(data => setCharacters(data))
     }, [])
 
-    return <form>
-        <select name='character_id' id='character_id'>
+    return <form onSubmit={submitFormHandler}>
+        <select name='character_id' id='character_id' className='custom-select'>
+        <option disabled selected value="">Characters</option>
+
             {characters.map((character) =>(
                 <option key={character.id}>{character.first_name}</option>
             ))}
 
         </select>
     </form>
-
-//   const fetchCharactersData = async () => {
-//     try {
-//       const response = await fetch('/api/characters');
-//       const data = await response.json();
-//       setCharacters(data);
-//     } catch (error) {
-//       console.error('Error fetching characters data:', error);
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <button onClick={fetchCharactersData} className='my-buttons'>Characters</button>
-//       {characters.map((character) => (
-//         <div key={character.id}>
-//           <h3>{character.name}</h3>
-//           <p>House: {character.house.name}</p>
-//         </div>
-//       ))}
-//     </div>
-//   );
     
 }
 
