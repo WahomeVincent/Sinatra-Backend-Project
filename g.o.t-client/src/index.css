@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #B9E9CC;
 }
 
 code {
@@ -12,12 +13,20 @@ code {
     monospace;
 }
 
+.hero-image {
+  width: 100%;
+  height: 500px;
+}
+
+
+
 /* Main body -- Data fetched */
 h1 {
-  font-size: 28px;
+  font-size: 50px;
   color: #333;
   text-align: center;
   margin-top: 30px;
+  text-decoration: underline;
 }
 
 .card-list {
@@ -28,12 +37,13 @@ h1 {
 
 .card {
   width: 250px;
-  margin: 50px;
+  margin: 10px;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
   text-align: center;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background-color: white;
 }
 
 .card img {
@@ -65,6 +75,7 @@ h1 {
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
+  background-color: white;
 }
 
 .character-form h1 {
@@ -122,6 +133,7 @@ h1 {
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
+  background-color: white;
 }
 
 .house-form h1 {
@@ -171,4 +183,77 @@ h1 {
 
 section {
   display: flex;
+  margin-top: 50px;
+  padding-top: 40px;
+  border-top: 5px solid rgb(233, 225, 225);
+}
+
+/* Buttons */
+.button-card{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+
+.my-buttons {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.my-buttons:hover {
+  background-color: #0056b3;
+}
+
+/* Footer */
+
+.footer {
+  background-color: #0a0808;
+  padding: 20px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.social-icons {
+  margin-bottom: 20px;
+}
+
+.social-icon {
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+}
+
+.footer-text {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.footer-text-small {
+  font-size: 14px;
+  color: #666;
+}
+
+/*  */
+.custom-select {
+  display: inline-block;
+  background-color: #f2f2f2;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #333;
 }

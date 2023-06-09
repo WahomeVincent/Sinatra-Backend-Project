@@ -27,8 +27,10 @@ function HouseForm() {
       });
       const data = await response.json();
       console.log('House:', data);
+      
       // Reset form fields after successful submission
       setFormData({ name: '', character: ''});
+      alert('Your House has been created!');
     } catch (error) {
       console.error('Error creating character:', error);
     }
