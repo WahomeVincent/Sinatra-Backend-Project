@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 
 function HouseForm() {
+
+  const baseApiUrl = 'http://127.0.0.1:9292'
+
   const [formData, setFormData] = useState({
     name: '',
     character: ''
@@ -11,10 +14,24 @@ function HouseForm() {
     setFormData((prevState) => ({ ...prevState, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Handle form submission logic here
-    console.log(formData);
+    try {
+      const response = await fetch(`${baseApiUrl}/houses`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+      const data = await response.json();
+      console.log('House:', data);
+      // Reset form fields after successful submission
+      setFormData({ name: '', character: ''});
+    } catch (error) {
+      console.error('Error creating character:', error);
+    }
   };
 
   return (
